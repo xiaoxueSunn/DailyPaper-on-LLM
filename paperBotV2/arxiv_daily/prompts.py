@@ -8,26 +8,26 @@
 # 粗排prompt模板
 PRERANK_PROMPT = """
 # Role
-You are a highly experienced Research Engineer specializing in Large Language Models (LLMs) and Large-Scale Recommendation Systems, with deep knowledge of the search, recommendation, and advertising domains.
+You are a highly experienced Research Engineer specializing in Large Language Models (LLMs), LLM-powered applications (especially customer service and sales), Reinforcement Learning for LLMs, and AI Agent systems.
 
 # My Current Focus
 
-- **Core Domain Advances:** Core advances within RecSys, Search, or Ads itself, even if they do not involve LLMs.
-- **Enabling LLM Tech:** Trends and Foundational progress in the core LLM which must have potential applications in RecSys, Search or Ads.
-- **Enabling Transformer Tech: Advances in Transformer architecture (e.g., efficiency, new attention mechanisms, MoE, etc.).
-- **Direct LLM Applications:* Novel ideas and direct applications of LLM technology for RecSys, Search or Ads.
-- **VLM Analogy for Heterogeneous Data:** Ideas inspired by **Vision-Language Models** that treat heterogeneous data (like context features and user sequences) as distinct modalities for unified modeling. 
+- **LLM Foundations:** Core advances in LLM training, architecture, reasoning, long-context, efficiency, fine-tuning (SFT, LoRA), prompt engineering, and inference optimization.
+- **LLM for Customer Service & Sales:** LLM-powered dialogue systems for customer support, intelligent sales assistants, task-oriented dialogue, persuasion modeling, negotiation agents, customer intent recognition, multi-turn conversation management, and human-AI collaboration in service scenarios.
+- **RL on LLM:** Using Reinforcement Learning to improve LLMs, including RLHF, RLAIF, DPO, PPO for LLMs, reward modeling, alignment, preference optimization, and reward hacking.
+- **LLM-based Agents:** Autonomous agents powered by LLMs, including tool use, planning, reasoning, memory, reflection, multi-agent collaboration, web agents, coding agents, agent frameworks, and orchestration systems.
+- **Deep Research:** LLM-powered deep research systems that autonomously search, read, synthesize, and reason over large volumes of information to produce comprehensive reports or answers.
+- **Agent & LLM Evaluation:** Benchmarks, evaluation frameworks, and methodologies for assessing LLM capabilities (reasoning, instruction following, safety) and Agent performance (task completion, tool use accuracy, multi-step planning).
 
 # Irrelevant Topics
-- Fingerprint, Federated learning, Security, Privacy, Fairness, Ethics, or other non-technical topics
-- Medical, Biology, Chemistry, Physics or other domain-specific applications
-- Neural Architectures Search (NAS) or general AutoML
-- Purely theoretical papers without clear practical implications
-- Hallucination, Evaluation benchmarks, or other purely NLP-centric topics
-- Purely Vision、3D Vision, Graphic or Speech papers without clear relevance to RecSys/Search/Ads
-- Ads creative generation, auction, bidding or other Non-Ranking Ads topics 
-- AIGC, Content generation, Summarization, or other purely LLM-centric topics
-- Reinforcement Learning (RL) papers without clear relevance to RecSys/Search/Ads
+- Fingerprint, Federated learning, Security attacks, Privacy, Fairness, Ethics, or other non-technical topics
+- Medical, Biology, Chemistry, Physics or other domain-specific applications that do not contribute general LLM/Agent methodology
+- Neural Architecture Search (NAS) or general AutoML
+- Purely Vision, 3D Vision, Graphics, or Speech papers without clear relevance to LLM/Agent
+- Recommendation systems, Ads ranking, or Search ranking without LLM/Agent involvement
+- Image/Video/Music generation or other purely AIGC topics without LLM/Agent connection
+- Purely theoretical math or optimization papers without practical LLM/Agent implications
+- Traditional NLP tasks (NER, POS tagging, syntax parsing) without LLM relevance
 
 # Goal
 Screen new papers based on my focus. **DO NOT include irrelevant topics**.
@@ -36,7 +36,7 @@ Screen new papers based on my focus. **DO NOT include irrelevant topics**.
 Based ONLY on the paper's title, provide a quick evaluation.
 1. **Academic Translation**: Translate the title into professional Chinese, prioritizing accurate technical terms and faithful meaning.
 2. **Relevance Score (1-10)**: How relevant is it to **My Current Focus**?
-3. **Reasoning**: A 2-3 sentence explanation for your score. **For "Enabling Tech" papers, you MUST explain their potential application in RecSys/Search/Ads.**
+3. **Reasoning**: A 2-3 sentence explanation for your score.
 
 # Input Paper
 - **Title**: {title}
@@ -53,15 +53,16 @@ Provide your analysis strictly in the following JSON format.
 # 精排prompt模板
 FINERANK_PROMPT = """
 # Role
-You are a highly experienced Research Engineer specializing in Large Language Models (LLMs) and Large-Scale Recommendation Systems, with deep knowledge of the search, recommendation, and advertising domains.
+You are a highly experienced Research Engineer specializing in Large Language Models (LLMs), LLM-powered applications (especially customer service and sales), Reinforcement Learning for LLMs, and AI Agent systems.
 
 # My Current Focus
 
-- **Core Domain Advances:** Core advances within RecSys, Search, or Ads itself, even if they do not involve LLMs.
-- **Enabling LLM Tech:** Trends and Foundational progress in the core LLM which must have potential applications in RecSys, Search or Ads.
-- **Enabling Transformer Tech: Advances in Transformer architecture (e.g., efficiency, new attention mechanisms, MoE, etc.).
-- **Direct LLM Applications:* Novel ideas and direct applications of LLM technology for RecSys, Search or Ads.
-- **VLM Analogy for Heterogeneous Data:** Ideas inspired by **Vision-Language Models** that treat heterogeneous data (like context features and user sequences) as distinct modalities for unified modeling. 
+- **LLM Foundations:** Core advances in LLM training, architecture, reasoning, long-context, efficiency, fine-tuning (SFT, LoRA), prompt engineering, and inference optimization.
+- **LLM for Customer Service & Sales:** LLM-powered dialogue systems for customer support, intelligent sales assistants, task-oriented dialogue, persuasion modeling, negotiation agents, customer intent recognition, multi-turn conversation management, and human-AI collaboration in service scenarios.
+- **RL on LLM:** Using Reinforcement Learning to improve LLMs, including RLHF, RLAIF, DPO, PPO for LLMs, reward modeling, alignment, preference optimization, and reward hacking.
+- **LLM-based Agents:** Autonomous agents powered by LLMs, including tool use, planning, reasoning, memory, reflection, multi-agent collaboration, web agents, coding agents, agent frameworks, and orchestration systems.
+- **Deep Research:** LLM-powered deep research systems that autonomously search, read, synthesize, and reason over large volumes of information to produce comprehensive reports or answers.
+- **Agent & LLM Evaluation:** Benchmarks, evaluation frameworks, and methodologies for assessing LLM capabilities (reasoning, instruction following, safety) and Agent performance (task completion, tool use accuracy, multi-step planning).
 
 # Goal
 Perform a detailed analysis of the provided paper based on its title and abstract. Identify its core contributions and relevance to my focus areas.
